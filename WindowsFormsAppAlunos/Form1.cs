@@ -30,9 +30,12 @@ namespace WindowsFormsAppAlunos
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
-            dgvAlunos.Rows.RemoveAt(dgvAlunos.CurrentRow.Index);
-            lblTotal.Text = dgvAlunos.RowCount.ToString();
-            MessageBox.Show("Aluno excluído", "Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            if (dgvAlunos.RowCount > 0)
+            {
+                dgvAlunos.Rows.RemoveAt(dgvAlunos.CurrentRow.Index);
+                lblTotal.Text = dgvAlunos.RowCount.ToString();
+                MessageBox.Show("Aluno excluído", "Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void btnTodos_Click(object sender, EventArgs e)
